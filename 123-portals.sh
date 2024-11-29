@@ -42,12 +42,7 @@ echo "> Uploaded 30-11-2024"
 # Restart Enigma2 service or kill enigma2 based on the system
 if [ -f /etc/apt/apt.conf ]; then
     sleep 2
-    systemctl restart enigma2
-else
-    sleep 2
-    killall -9 enigma2
-    sleep 2;
-echo "" 
+echo ""
 echo "" 
 echo "**********************************************************
 echo "#                   INSTALLED SUCCESSFULLY              #"
@@ -61,6 +56,11 @@ sleep 4;
 echo ". >>>>         RESTARING         <<<<"
 echo "**********************************************************"
 wait
+    systemctl restart enigma2
+else
+    sleep 2
+    killall -9 enigma2
+    sleep 2;
 fi
 else
 sleep 3
