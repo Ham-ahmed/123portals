@@ -46,6 +46,21 @@ if [ -f /etc/apt/apt.conf ]; then
 else
     sleep 2
     killall -9 enigma2
+    sleep 2;
+echo "" 
+echo "" 
+echo "**********************************************************
+echo "#                   INSTALLED SUCCESSFULLY              #"
+echo "*                       ON - Panel                      *"
+echo "*                Enigma2 restart is required            *"
+echo "**********************************************************"
+echo "               UPLOADED BY  >>>>   HAMDY_AHMED           "
+sleep 4;
+	echo '======================================================'
+############################################                                                                                                                  
+echo ". >>>>         RESTARING         <<<<"
+echo "**********************************************************"
+wait
 fi
 else
 sleep 3
