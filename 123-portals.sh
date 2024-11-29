@@ -54,7 +54,6 @@ sleep 4;
 echo ". >>>>         RESTARING         <<<<"
 echo "**********************************************************"
 wait
-    systemctl restart enigma2
 else
     sleep 2
     # Restart Enigma2 service or kill enigma2 based on the system
