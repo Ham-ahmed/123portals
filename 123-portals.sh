@@ -39,9 +39,7 @@ echo "> Setup done..., Please wait enigma2 restarting..."
 sleep 1
 echo "> Uploaded 30-11-2024"
 
-# Restart Enigma2 service or kill enigma2 based on the system
-if [ -f /etc/apt/apt.conf ]; then
-    sleep 2
+sleep 2
 echo ""
 echo "" 
 echo "**********************************************************
@@ -59,9 +57,10 @@ wait
     systemctl restart enigma2
 else
     sleep 2
+    # Restart Enigma2 service or kill enigma2 based on the system
+if [ -f /etc/apt/apt.conf ]; then
     killall -9 enigma2
     sleep 2;
 fi
-else
 sleep 3
 fi
