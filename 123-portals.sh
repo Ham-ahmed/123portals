@@ -11,12 +11,10 @@ echo "> installation of portals files  finished"
 sleep 3
 
 echo "> Setup the plugin..."
-# Configure MultiStalkerPro_settings
-touch "temp_dir/temp_file"
-cat <<EOF > "temp_dir/temp_file"
+touch "$temp_dir/temp_file"
+cat <<EOF > "$temp_dir/temp_file"
 config.plugins.MultiStalkerPro.adult=True
 config.plugins.MultiStalkerPro.color=Red
-config.plugins.MultiStalkerPro.extplayer_subtitle_font_color=#00ffff00
 config.plugins.MultiStalkerPro.extplayer_subtitle_pos=86
 config.plugins.MultiStalkerPro.host=http://dreamtv22.info:25461/
 config.plugins.MultiStalkerPro.username=270297167590
@@ -31,35 +29,37 @@ EOF
 
 # Update Enigma2 settings
 sed -i "/MultiStalkerPro/d" /etc/enigma2/settings
-grep "config.plugins.MultiStalkerPro.*" "temp_dir/temp_file" >> /etc/enigma2/settings
-rm -rf "temp_dir/temp_file" >/dev/null 2>&1
+grep "config.plugins.MultiStalkerPro.*" "$temp_dir/temp_file" >> /etc/enigma2/settings
+rm -rf "$temp_dir/temp_file" >/dev/null 2>&1
 
 sleep 2
 echo "> Setup done..., Please wait enigma2 restarting..."
 sleep 1
-echo "> Uploaded 30-11-2024"
+echo "> H-Ahmed"
 
-sleep 2
-echo ""
+# Restart Enigma2 service or kill enigma2 based on the system
+if [ -f /etc/apt/apt.conf ]; then
+    sleep 2
+    systemctl restart enigma2
+else
+echo "" 
 echo "" 
 echo "**********************************************************
 echo "#                   INSTALLED SUCCESSFULLY              #"
 echo "*                       ON - Panel                      *"
 echo "*                Enigma2 restart is required            *"
-echo "**********************************************************"
+echo "*********************************************************"
 echo "               UPLOADED BY  >>>>   HAMDY_AHMED           "
 sleep 4;
-	echo '======================================================'
-############################################                                                                                                                  
-echo ". >>>>         RESTARING         <<<<"
-echo "**********************************************************"
+echo '========================================================='
+################################################################
+echo ">>>>                   RESTARING                     <<<<"
+echo "*********************************************************"
 wait
-else
-    sleep 2
-    # Restart Enigma2 service or kill enigma2 based on the system
-if [ -f /etc/apt/apt.conf ]; then
-    killall -9 enigma2
-    sleep 2;
+killall -9 enigma2
 fi
+else
+echo "> $plugin-$version package installation failed"
 sleep 3
 fi
+    
